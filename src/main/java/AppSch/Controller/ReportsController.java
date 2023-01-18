@@ -25,7 +25,7 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 /**
- * The type Reports controller.
+ * The class containing the control functions for the reports screen
  */
 public class ReportsController implements Initializable {
 
@@ -44,19 +44,15 @@ public class ReportsController implements Initializable {
     @FXML    private Text apptTxt;
     @FXML    private Text avgTxt;
 
-    /**
-     * The Stage.
-     */
+
     Stage stage;
-    /**
-     * The Scene.
-     */
+
     Parent scene;
 
     /**
-     * On action exit.
+     * This method opens to the Main Menu screen
      *
-     * @param event the event
+     * @param event the exit button clicked
      * @throws IOException the io exception
      */
     @FXML
@@ -69,7 +65,7 @@ public class ReportsController implements Initializable {
     }
 
     /**
-     * On action select contact.
+     * This method populates the tableview based on the contact combo selection. displaying appointments for selected contact
      *
      * @param event the event
      */
@@ -79,7 +75,7 @@ public class ReportsController implements Initializable {
     }
 
     /**
-     * On action find appts.
+     * This method displays the number of appointments in a selected month and appointment type.
      *
      * @param event the event
      */
@@ -97,7 +93,7 @@ public class ReportsController implements Initializable {
     }
 
     /**
-     * On action calculate avg.
+     * This method calculates the average number of appointments per contact
      *
      * @param event the event
      */
@@ -111,6 +107,11 @@ public class ReportsController implements Initializable {
         avgTxt.setText(String.valueOf(average));
     }
 
+    /**
+     * Initializes the columns of the tableview and populates the combo boxes
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

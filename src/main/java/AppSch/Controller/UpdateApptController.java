@@ -30,47 +30,32 @@ import static AppSch.DAO.AppointmentDAOImpl.insertAppointment;
 import static AppSch.DAO.AppointmentDAOImpl.updateAppointment;
 
 /**
- * The type Update appt controller.
+ * The class for the control functions of the Update Appointment screen
  */
 public class UpdateApptController implements Initializable {
 
-    /**
-     * The Stage.
-     */
+
     Stage stage;
-    /**
-     * The Scene.
-     */
+
     Parent scene;
 
     @FXML    private TextField apptIDTxt;
-
     @FXML    private ComboBox<Contact> contactCombo;
-
     @FXML    private ComboBox<Integer> custIDcombo;
-
     @FXML    private TextField descTxt;
-
     @FXML    private DatePicker endDatePicker;
-
     @FXML    private ComboBox<LocalTime> endTimeCombo;
-
     @FXML    private TextField locationTxt;
-
     @FXML    private DatePicker startDatePicker;
-
     @FXML    private ComboBox<LocalTime> startTimeCombo;
-
     @FXML    private TextField titleTxt;
-
     @FXML    private ComboBox<String> typeCombo;
-
     @FXML    private ComboBox<Integer> userIDcombo;
 
     /**
-     * On action exit.
+     * This method exits to the Appointment Main screen
      *
-     * @param event the event
+     * @param event the exit button clicked
      * @throws IOException the io exception
      */
     @FXML
@@ -83,9 +68,9 @@ public class UpdateApptController implements Initializable {
     }
 
     /**
-     * On action save appt.
-     *
-     * @param event the event
+     * This method submits the appointment, checking for completed fields, overlapping appointments, appointment time within business hours
+     *If okay, updates appointment in the DB.
+     * @param event the submit button clicked
      */
     @FXML
     void onActionSaveAppt(ActionEvent event) {
@@ -142,7 +127,7 @@ public class UpdateApptController implements Initializable {
     }
 
     /**
-     * Send appointment.
+     * This method sends/receives the selected appointment object from the previous screen and sets the fields with the existing data.
      *
      * @param appointment the appointment
      */
@@ -173,6 +158,11 @@ public class UpdateApptController implements Initializable {
         System.out.println("Straight from DB: "+appointment.getStart());
     }
 
+    /**
+     * Populates the combo boxes
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         userIDcombo.setItems(UserDAOImpl.getAllUserIDs());

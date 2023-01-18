@@ -22,23 +22,19 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
- * The type Main menu controller.
+ * This method contains the controller functions for the Main Menu window.
  */
 public class MainMenuController implements Initializable {
 
-    /**
-     * The Stage.
-     */
+
     Stage stage;
-    /**
-     * The Scene.
-     */
+
     Parent scene;
 
     /**
-     * On action appt main.
+     * Opens the Appointment Main screen
      *
-     * @param event the event
+     * @param event the Appointment button is clicked
      * @throws IOException the io exception
      */
     @FXML
@@ -51,9 +47,9 @@ public class MainMenuController implements Initializable {
     }
 
     /**
-     * On action customer main.
+     * Opens the customer main screen
      *
-     * @param event the event
+     * @param event the customer button clicked
      * @throws IOException the io exception
      */
     @FXML
@@ -66,9 +62,9 @@ public class MainMenuController implements Initializable {
     }
 
     /**
-     * On action reports.
+     * Opens the reports screen
      *
-     * @param event the event
+     * @param event the reports button clicked
      * @throws IOException the io exception
      */
     @FXML
@@ -81,7 +77,7 @@ public class MainMenuController implements Initializable {
     }
 
     /**
-     * Error dialog.
+     * Creates an error dialog with custom title, header, message
      *
      * @param title   the title
      * @param header  the header
@@ -117,7 +113,7 @@ public class MainMenuController implements Initializable {
     }
 
     /**
-     * Upcoming appt dialog.
+     * this method opens an information dialog with custom title, header, content
      *
      * @param title   the title
      * @param header  the header
@@ -132,7 +128,8 @@ public class MainMenuController implements Initializable {
     }
 
     /**
-     * Appt alert.
+     * this method checks if any appointments are scheduled within 15 minutes of current time and sends alert notifying
+     * If no appointments within 15 min, sends info alert notifying
      */
     static void apptAlert() {
         boolean upcoming = false;
@@ -152,7 +149,10 @@ public class MainMenuController implements Initializable {
 
 
 
+    /**
+     * initially calls the appointment alert method
 
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         apptAlert();

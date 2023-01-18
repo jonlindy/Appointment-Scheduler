@@ -29,17 +29,13 @@ import static AppSch.DAO.CustomerQuery.updateCustomer;
 import static AppSch.DAO.DivisionDAOImpl.getAllDivisions;
 
 /**
- * The type Update customer controller.
+ * The class for the control functions of the Update Appointment screen
  */
 public class UpdateCustomerController implements Initializable {
 
-    /**
-     * The Stage.
-     */
+
     Stage stage;
-    /**
-     * The Scene.
-     */
+
     Parent scene;
 
     @FXML    private ComboBox<Country> countryCombo;
@@ -51,13 +47,11 @@ public class UpdateCustomerController implements Initializable {
     private int customer_id;
 
 
-    /**
-     * The Alldivs.
-     */
+
     ObservableList<Division> alldivs = DivisionDAOImpl.getAllDivisions();
 
     /**
-     * On country combo.
+     * This method sets the division combo box with the selected country's divisions
      *
      * @param event the event
      */
@@ -74,7 +68,8 @@ public class UpdateCustomerController implements Initializable {
     }
 
     /**
-     * On action submit.
+     * This method submits the customer, checking for input errors/ fields not completed.
+     * If okay, updates customer in the DB
      *
      * @param event the event
      * @throws IOException the io exception
@@ -113,7 +108,7 @@ public class UpdateCustomerController implements Initializable {
     }
 
     /**
-     * Send customer.
+     * This method sends/receives the selected customer object from the previous screen and sets the fields with the existing data
      *
      * @param customer the customer
      */
@@ -146,9 +141,9 @@ public class UpdateCustomerController implements Initializable {
 
 
     /**
-     * On action exit.
+     * this method returns to the Customer main screen
      *
-     * @param event the event
+     * @param event the exit button clicked
      * @throws IOException the io exception
      */
     @FXML
@@ -159,6 +154,11 @@ public class UpdateCustomerController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Populates the country combo box and customer_id
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
