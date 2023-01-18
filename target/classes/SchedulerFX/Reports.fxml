@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="1079.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppSch.Controller.ReportsController">
+   <children>
+      <Text layoutX="70.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reports">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <HBox alignment="CENTER" layoutX="87.0" layoutY="169.0" prefHeight="50.0" prefWidth="359.0" spacing="10.0" />
+      <TableView fx:id="scheduleTableView" layoutX="139.0" layoutY="373.0" prefHeight="296.0" prefWidth="750.0">
+         <columns>
+            <TableColumn fx:id="apptIDCol" prefWidth="101.0" text="Appointment_ID" />
+            <TableColumn fx:id="titleCol" prefWidth="82.0" text="Title" />
+            <TableColumn fx:id="descCol" prefWidth="105.0" text="Description" />
+            <TableColumn fx:id="locCol" prefWidth="93.0" text="Location" />
+            <TableColumn fx:id="typeCol" prefWidth="95.0" text="Type" />
+            <TableColumn fx:id="startCol" prefWidth="96.0" text="Start Date/Time" />
+            <TableColumn fx:id="endCol" prefWidth="96.0" text="End Date/Time" />
+            <TableColumn fx:id="custIDCol" prefWidth="81.0" text="Customer_ID" />
+         </columns>
+      </TableView>
+      <ComboBox fx:id="contactCombo" layoutX="139.0" layoutY="341.0" onAction="#onActionSelectContact" prefWidth="150.0" promptText="Select Contact" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="433.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedule by Contact">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button layoutX="873.0" layoutY="24.0" mnemonicParsing="false" onAction="#onActionExit" text="Exit" />
+      <Pane layoutX="308.0" layoutY="213.0" opacity="0.89" prefHeight="87.0" prefWidth="463.0" style="-fx-border-color: -fx-text-box-border;">
+         <children>
+            <Text fx:id="avgTxt" layoutX="256.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Text>
+            <Text layoutX="48.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Average number of appointments per contact">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="171.0" layoutY="51.0" mnemonicParsing="false" onAction="#onActionCalculateAvg" text="Calculate" />
+         </children>
+         <effect>
+            <Blend />
+         </effect>
+      </Pane>
+      <Pane layoutX="308.0" layoutY="82.0" opacity="0.89" prefHeight="87.0" prefWidth="463.0" style="-fx-border-color: -fx-text-box-border;">
+         <children>
+            <ComboBox fx:id="apptTypeCombo" layoutX="21.0" layoutY="51.0" prefWidth="150.0" promptText="Select Type" />
+            <ComboBox fx:id="apptMonthCombo" layoutX="179.0" layoutY="51.0" prefWidth="150.0" promptText="Select Month" />
+            <Text fx:id="apptTxt" layoutX="403.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text layoutX="21.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find number of appointments by type and month">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="351.0" layoutY="51.0" mnemonicParsing="false" onAction="#onActionFindAppts" text="Go" />
+         </children>
+         <effect>
+            <Blend />
+         </effect>
+      </Pane>
+   </children>
+</AnchorPane>

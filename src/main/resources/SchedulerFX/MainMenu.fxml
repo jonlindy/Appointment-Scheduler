@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="315.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppSch.Controller.MainMenuController">
+   <children>
+      <Pane layoutX="53.0" layoutY="58.0" prefHeight="200.0" prefWidth="269.0">
+         <children>
+            <Button layoutX="76.0" layoutY="42.0" mnemonicParsing="false" onAction="#onActionCustomerMain" prefHeight="58.0" prefWidth="138.0" text="Customers">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Text layoutX="71.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View | Add | Update | Delete" />
+         </children>
+      </Pane>
+      <Pane layoutX="348.0" layoutY="58.0" prefHeight="200.0" prefWidth="269.0">
+         <children>
+            <Button layoutX="78.0" layoutY="42.0" mnemonicParsing="false" onAction="#onActionApptMain" prefHeight="58.0" prefWidth="138.0" text="Appointments">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Text layoutX="73.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View | Add | Update | Delete" />
+         </children>
+      </Pane>
+      <Button layoutX="276.0" layoutY="246.0" mnemonicParsing="false" onAction="#onActionReports" prefHeight="32.0" prefWidth="123.0" text="Reports">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Text layoutX="258.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
