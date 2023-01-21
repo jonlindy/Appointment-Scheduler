@@ -11,12 +11,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * The type Division dao.
+ * This class contains the methods for Division Data Access Object implementations
  */
 public class DivisionDAOImpl {
 
     /**
-     * Get all divisions observable list.
+     * This method selects all divisions from the DB and puts them in an observable list.
      *
      * @return the observable list
      */
@@ -50,7 +50,7 @@ public class DivisionDAOImpl {
     }
 
     /**
-     * Get all divisions observable list.
+     * this is an overloaded method to get all divisions given a country name.
      *
      * @param country_name the country name
      * @return the observable list

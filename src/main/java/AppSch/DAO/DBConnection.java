@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * The type Db connection.
+ * This class contains methods to establish a connection to the MySql Database.
  */
 public abstract class DBConnection {
 
@@ -17,13 +17,11 @@ public abstract class DBConnection {
     private static final String driver = "com.mysql.cj.jdbc.Driver";
     private static final String username="sqlUser";
     private static final String password="Passw0rd!";
-    /**
-     * The Connection.
-     */
+
     public static Connection connection;
 
     /**
-     * Open connection.
+     * This method opens the database connection.
      */
     public static void openConnection(){
         try {
@@ -38,7 +36,7 @@ public abstract class DBConnection {
 
 
     /**
-     * Close connection.
+     * This method closes the database connection.
      */
     public static void closeConnection() {
         try {

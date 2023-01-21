@@ -1,7 +1,7 @@
 package AppSch.Model;
 
 /**
- * The type Division.
+ * The Division class model
  */
 public class Division {
 

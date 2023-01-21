@@ -27,7 +27,7 @@ import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 import static AppSch.DAO.AppointmentDAOImpl.insertAppointment;
-import static AppSch.DAO.CustomerQuery.insertCustomer;
+
 
 /**
  * This class contains the controller functions for the Add Appointment screen.

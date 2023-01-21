@@ -5,7 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- * The type Customer.
+ * The Customer class model
  */
 public class Customer {
 

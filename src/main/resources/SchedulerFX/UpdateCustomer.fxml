@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppSch.Controller.UpdateCustomerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppSch.Controller.UpdateCustomerController">
    <children>
       <Text layoutX="90.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Customer">
          <font>
@@ -28,19 +28,26 @@
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Customer" />
-                  <Label text="Address" GridPane.rowIndex="1" />
-                  <Label text="Postal Code" GridPane.rowIndex="2" />
-                  <Label text="Phone Number" GridPane.rowIndex="3" />
-                  <TextField fx:id="custTxt" prefHeight="25.0" prefWidth="223.0" GridPane.columnIndex="1" />
-                  <TextField fx:id="addressTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="postalTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="phoneTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Customer" GridPane.rowIndex="1" />
+                  <Label text="Address" GridPane.rowIndex="2" />
+                  <Label text="Postal Code" GridPane.rowIndex="3" />
+                  <Label text="Phone Number" GridPane.rowIndex="4" />
+                  <TextField fx:id="custTxt" prefHeight="25.0" prefWidth="223.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="addressTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="postalTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="phoneTxt" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label text="Customer_ID" />
+                  <TextField fx:id="custIDTxt" editable="false" prefHeight="25.0" prefWidth="223.0" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </TextField>
                </children>
             </GridPane>
             <ComboBox fx:id="countryCombo" layoutX="93.0" layoutY="263.0" onAction="#onCountryCombo" prefWidth="150.0" />

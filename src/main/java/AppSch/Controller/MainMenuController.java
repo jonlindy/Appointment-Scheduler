@@ -137,8 +137,7 @@ public class MainMenuController implements Initializable {
             System.out.println(TimeWork.getTimeDifference(appointment.getStart()));
             if ((TimeWork.getTimeDifference(appointment.getStart()) <= 15) && (TimeWork.getTimeDifference(appointment.getStart()) > 0)) {
                 upcoming = true;
-                MainMenuController.upcomingApptDialog("Schedule Alert", "Upcoming appointment", "There is an appointment starting in " + TimeWork.getTimeDifference(appointment.getStart()) + " minute(s)!");
-            }
+                MainMenuController.upcomingApptDialog("Schedule Alert", "Upcoming appointment", "Appointment with ID: " + appointment.getAppointment_ID() + ", Date: " + appointment.getStart().toLocalDate() + ", and Time: " + appointment.getStart().toLocalTime() + " is starting in " + TimeWork.getTimeDifference(appointment.getStart()) + " minute(s)!");            }
         }
         if (upcoming == false)
             MainMenuController.upcomingApptDialog("Schedule Alert", "No upcoming appointments", "There are no appointments starting in the next 15 minutes.");

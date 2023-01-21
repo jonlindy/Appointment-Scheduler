@@ -11,12 +11,12 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 /**
- * The type Time work.
+ * The class contains methods that deal with Time classes and functions.
  */
 public class TimeWork {
 
     /**
-     * Gets time difference.
+     * This method gives the time difference between now and a given time.
      *
      * @param start the start
      * @return the time difference
@@ -31,7 +31,7 @@ public class TimeWork {
     }
 
     /**
-     * Appt overlap check boolean.
+     * This method checks if a given appointment's time overlaps with any existing appointment's time
      *
      * @param appointment_id the appointment id
      * @param A_st           the a st
@@ -70,10 +70,10 @@ public class TimeWork {
     }
 
     /**
-     * New appt overlap check boolean.
+     * This method checks if a new appointment's time overlaps with any existing appointment's time
      *
-     * @param A_st  the a st
-     * @param A_end the a end
+     * @param A_st  the appointment start time
+     * @param A_end the appointment end time
      * @return the boolean
      */
     public static boolean newApptOverlapCheck(LocalDateTime A_st, LocalDateTime A_end) {
@@ -99,7 +99,7 @@ public class TimeWork {
     }
 
     /**
-     * Gets month list.
+     * This method creates a list of the calender months.
      *
      * @return the month list
      */
@@ -122,28 +122,22 @@ public class TimeWork {
         return monthList;
     }
 
-    /**
-     * Print zones.
-     */
-    public static void printZones() {
-
-    }
 
     /**
      * Gets est zdt.
      *
      * @return the est zdt
      */
-    public static ZonedDateTime getEST_ZDT() {
-        LocalDate estDate = LocalDate.now();
-        LocalTime estTime = LocalTime.now();
-        ZoneId estZoneId = ZoneId.of("America/New_York");
-        ZonedDateTime est_ZDT = ZonedDateTime.of(estDate, estTime, estZoneId);
-        return est_ZDT;
-    }
+//    public static ZonedDateTime getEST_ZDT() {
+//        LocalDate estDate = LocalDate.now();
+//        LocalTime estTime = LocalTime.now();
+//        ZoneId estZoneId = ZoneId.of("America/New_York");
+//        ZonedDateTime est_ZDT = ZonedDateTime.of(estDate, estTime, estZoneId);
+//        return est_ZDT;
+//    }
 
     /**
-     * Convert to utc local date time.
+     * This method converts a given LocalDateTime to UTC LocalDateTime
      *
      * @param time the time
      * @return the local date time
@@ -153,7 +147,7 @@ public class TimeWork {
     }
 
     /**
-     * Convert to local local date time.
+     * This method converts a given LocalDateTime to local LocalDateTime
      *
      * @param time the time
      * @return the local date time
@@ -163,7 +157,7 @@ public class TimeWork {
     }
 
     /**
-     * Convert to est local date time.
+     * This method converts a given LocalDateTime to EST LocalDateTime
      *
      * @param time the time
      * @return the local date time
@@ -173,7 +167,7 @@ public class TimeWork {
     }
 
     /**
-     * In business hours boolean.
+     * This method checks if a given start and end time is in business hours.
      *
      * @param start the start
      * @param end   the end

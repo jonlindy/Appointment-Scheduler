@@ -9,12 +9,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * The type User dao.
+ * This class contains the methods for User Data Access Object implementations
  */
 public class UserDAOImpl {
 
     /**
-     * Gets all users.
+     * This method selects all users from the DB and puts them in an observable list.
      *
      * @return the all users
      */
@@ -43,7 +43,7 @@ public class UserDAOImpl {
     }
 
     /**
-     * Gets all user i ds.
+     * This method gets all user id's into a list. Used for combo box
      *
      * @return the all user i ds
      */

@@ -24,8 +24,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import static AppSch.DAO.CustomerQuery.insertCustomer;
-import static AppSch.DAO.CustomerQuery.updateCustomer;
+
 import static AppSch.DAO.DivisionDAOImpl.getAllDivisions;
 
 /**
@@ -44,6 +43,8 @@ public class UpdateCustomerController implements Initializable {
     @FXML    private TextField postalTxt;
     @FXML    private TextField custTxt;
     @FXML    private TextField addressTxt;
+    @FXML    private TextField custIDTxt;
+
     private int customer_id;
 
 
@@ -93,7 +94,7 @@ public class UpdateCustomerController implements Initializable {
                 else {
                     Customer customerToUpdate = new Customer(customer_id, customer_name, address, postal_code, phone, division);
 
-                    updateCustomer(customerToUpdate);
+                    CustomerDAOImpl.updateCustomer(customerToUpdate);
 
                     stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                     scene = FXMLLoader.load(getClass().getResource("/SchedulerFX/CustomerMain.fxml"));
@@ -117,6 +118,7 @@ public class UpdateCustomerController implements Initializable {
         // ObservableList<Customer> currentCustomer = FXCollections.observableArrayList();
         // currentCustomer.add(customer);
         customer_id = customer.getCustomer_id();
+        custIDTxt.setText(String.valueOf(customer.getCustomer_id()));
         custTxt.setText(customer.getCustomer_name());
         addressTxt.setText(customer.getAddress());
         postalTxt.setText(customer.getPostal_code());

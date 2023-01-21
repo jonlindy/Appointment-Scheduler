@@ -1,8 +1,6 @@
 package AppSch.Controller;
 
-import AppSch.DAO.AppointmentDAOImpl;
 import AppSch.DAO.CustomerDAOImpl;
-import AppSch.DAO.CustomerQuery;
 import AppSch.Model.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -70,7 +68,7 @@ public class CustomerMainController implements Initializable {
             if (Customer.getCustomersAppt(customer_id).isEmpty()) {
 
                 if (confirmDialog("Deleting Customer", "Are you sure? Delete?")) {
-                    CustomerQuery.deleteCustomer(customer_id);
+                    CustomerDAOImpl.deleteCustomer(customer_id);
                     custTableView.setItems(CustomerDAOImpl.getAllCustomers());
                     confirmDialog("Customer record deleted", customer_name + "'s record has been deleted.");
                 }

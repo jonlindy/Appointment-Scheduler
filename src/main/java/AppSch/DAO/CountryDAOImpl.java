@@ -10,12 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * The type Country dao.
+ * This class contains the methods for Country Data Access Object implementations
  */
 public class CountryDAOImpl {
 
     /**
-     * Get all countries observable list.
+     * This method selects all countries from the DB and puts them in an observable list.
      *
      * @return the observable list
      */

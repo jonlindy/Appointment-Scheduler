@@ -1,8 +1,6 @@
 package AppSch.Controller;
 
 import AppSch.DAO.AppointmentDAOImpl;
-import AppSch.DAO.CustomerDAOImpl;
-import AppSch.DAO.CustomerQuery;
 import AppSch.Model.Appointment;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -153,6 +151,7 @@ public class ApptMainController implements Initializable {
     }
     /**
      * This method initializes the table columns, sets items to tables.
+     * LAMBDA: This initialize method implements a lambda expression using an event listener method to execute code when a selection is made.
      * @param url
      * @param resourceBundle
      */

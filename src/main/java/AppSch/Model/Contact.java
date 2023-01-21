@@ -5,7 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- * The type Contact.
+ * The Contact class model
  */
 public class Contact {
 
@@ -54,10 +54,10 @@ public class Contact {
     }
 
     /**
-     * Gets contacts appt.
+     * This method gets all appointments for a given contact
      *
      * @param contact the contact
-     * @return the contacts appt
+     * @return the contact's appt list
      */
     public static ObservableList<Appointment> getContactsAppt(Contact contact) {
         ObservableList<Appointment> apptList = FXCollections.observableArrayList();

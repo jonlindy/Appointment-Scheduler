@@ -24,7 +24,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import static AppSch.DAO.CustomerQuery.insertCustomer;
+
 import static AppSch.DAO.DivisionDAOImpl.*;
 
 /**
@@ -43,6 +43,7 @@ public class AddCustomerController implements Initializable {
     @FXML    private TextField postalTxt;
     @FXML    private TextField custTxt;
     @FXML    private TextField addressTxt;
+    @FXML    private TextField custIDTxt;
 
 
 
@@ -88,7 +89,7 @@ public class AddCustomerController implements Initializable {
                 else if ((divCombo.getSelectionModel().getSelectedItem() == null || countryCombo.getSelectionModel().getSelectedItem() == null)) {
                     MainMenuController.errorDialog("Input Error", "Error in saving customer", "All boxes must be chosen");}
                 else {
-                    insertCustomer(customer_name, address, postal_code, phone, division_id);
+                    CustomerDAOImpl.insertCustomer(customer_name, address, postal_code, phone, division_id);
 
                     stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                     scene = FXMLLoader.load(getClass().getResource("/SchedulerFX/CustomerMain.fxml"));

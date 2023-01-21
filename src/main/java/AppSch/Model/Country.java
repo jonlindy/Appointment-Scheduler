@@ -1,7 +1,7 @@
 package AppSch.Model;
 
 /**
- * The type Country.
+ * The Country class model.
  */
 public class Country {
 

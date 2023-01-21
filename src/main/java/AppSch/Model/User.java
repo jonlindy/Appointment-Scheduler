@@ -1,7 +1,7 @@
 package AppSch.Model;
 
 /**
- * The type User.
+ * The User class model
  */
 public class User {
 

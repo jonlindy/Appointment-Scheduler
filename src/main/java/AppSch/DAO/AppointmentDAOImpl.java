@@ -12,19 +12,14 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * The type Appointment dao.
+ * This class contains the methods for Appointment Data Access Object implementations
  */
 public class AppointmentDAOImpl {
 
     /**
-     * The constant formatter.
-     */
-    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-
-    /**
-     * Get all appointments observable list.
+     * This method selects all appointments from the DB and puts them in an observable list.
      *
-     * @return the observable list
+     * @return the observable list (apptList)
      */
     public static ObservableList<Appointment> getAllAppointments(){
         ObservableList<Appointment> apptList = FXCollections.observableArrayList();
@@ -66,7 +61,7 @@ public class AppointmentDAOImpl {
     }
 
     /**
-     * Insert appointment int.
+     * This method inserts a new appointment into the DB
      *
      * @param title       the title
      * @param description the description
@@ -103,7 +98,7 @@ public class AppointmentDAOImpl {
     }
 
     /**
-     * Delete appointment int.
+     * This method deletes an appointment from the DB given an appointment id.
      *
      * @param appointment_id the appointment id
      * @return the int
@@ -118,16 +113,16 @@ public class AppointmentDAOImpl {
     }
 
     /**
-     * Update appointment int.
+     * This method updates an existing appointment in the DB.
      *
-     * @param appointment the appointment
+     * @param appointment the appointment to update
      * @return the int
      * @throws SQLException the sql exception
      */
     public static int updateAppointment(Appointment appointment) throws SQLException {
         Timestamp startTs = Timestamp.valueOf(TimeWork.convertToUtc(appointment.getStart()));
         Timestamp endTs = Timestamp.valueOf(TimeWork.convertToUtc(appointment.getEnd()));
-        System.out.println("Appt Start in UTC: "+startTs);
+        //System.out.println("Appt Start in UTC: "+startTs);
 
         String sql = "UPDATE appointments SET " +
                 "Title = ?, " +

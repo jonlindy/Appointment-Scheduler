@@ -10,12 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * The type Contact dao.
+ * This class contains the methods for Contact Data Access Object implementations
  */
 public class ContactDAOImpl {
 
     /**
-     * Gets all contacts.
+     * This method selects all contacts from the DB and puts them in an observable list.
      *
      * @return the all contacts
      */

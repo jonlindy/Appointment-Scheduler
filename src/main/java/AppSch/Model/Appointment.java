@@ -9,10 +9,12 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
+import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 /**
- * The type Appointment.
+ * The Appointment class model
  */
 public class Appointment {
 
@@ -59,7 +61,7 @@ public class Appointment {
     }
 
     /**
-     * Gets type list.
+     * This method creates a list for Appointment Types.
      *
      * @return the type list
      */
@@ -74,7 +76,7 @@ public class Appointment {
     }
 
     /**
-     * Gets time list.
+     * This method creates a list for all appointment times
      *
      * @return the time list
      */
@@ -98,21 +100,24 @@ public class Appointment {
     }
 
     /**
-     * Gets month appointments.
+     * This method gets all appointments for the current month.
+     * LAMBDA: This method implements a lambda expression. A filter method is called on the appointment list to find appointments in the current Month.
+     * I believe this lambda implementation improves the readability of the code.
      *
-     * @return the month appointments
+     * @return the month's appointments
      */
     public static ObservableList<Appointment> getMonthAppointments() {
-        ObservableList<Appointment> monthApptList = FXCollections.observableArrayList();
+        List<Appointment> monthApptList;
         LocalDateTime currentTime = LocalDateTime.now();
-        for (Appointment appointment : AppointmentDAOImpl.getAllAppointments())
-            if (appointment.getStart().getMonth().equals(currentTime.getMonth()))
-                monthApptList.add(appointment);
-        return monthApptList;
+
+        monthApptList = AppointmentDAOImpl.getAllAppointments().stream()
+                                                                .filter(appointment -> appointment.getStart().getMonth().equals(currentTime.getMonth()))
+                                                                .collect(Collectors.toList());
+        return FXCollections.observableArrayList(monthApptList);
     }
 
     /**
-     * Gets week appointments.
+     * This method gets all appointments for the current week.
      *
      * @return the week appointments
      */

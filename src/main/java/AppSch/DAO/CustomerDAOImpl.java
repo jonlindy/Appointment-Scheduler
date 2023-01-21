@@ -1,6 +1,7 @@
 package AppSch.DAO;
 
 import AppSch.Model.Customer;
+import AppSch.Model.Division;
 import AppSch.Model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,12 +12,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * The type Customer dao.
+ * This class contains the methods for Customer Data Access Object implementations
  */
 public class CustomerDAOImpl {
 
     /**
-     * Get all customers observable list.
+     * This method selects all customers from the DB and puts them in an observable list.
      *
      * @return the observable list
      */
@@ -51,45 +52,80 @@ public class CustomerDAOImpl {
     }
 
     /**
-     * Add customer.
+     * This method inserts a new customer into the DB.
      *
-     * @param Customer_Name the customer name
-     * @param Address       the address
-     * @param Postal_Code   the postal code
-     * @param Phone         the phone
-     * @param Division_ID   the division id
+     * @param customer_name the customer name
+     * @param address       the address
+     * @param postal_code   the postal code
+     * @param phone         the phone
+     * @param division_id   the division id
+     * @return the int
+     * @throws SQLException the sql exception
      */
-    public static void addCustomer(String Customer_Name, String Address, String Postal_Code, String Phone, int Division_ID) {
-
-        try {
-
-            String sql = "INSERT INTO customers VALUES(NULL,?,?,?,?,?)";
-
-            PreparedStatement ps = DBConnection.connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-
-            ps.setString(1, Customer_Name);
-            ps.setString(1, Address);
-            ps.setString(1, Postal_Code);
-            ps.setString(1, Phone);
-            ps.setInt(1, Division_ID);
-
-            ps.execute();
-
-            ResultSet rs = ps.getGeneratedKeys();
-            rs.next();
-            int Customer_ID = rs.getInt(1);
-
-
-        }
-        catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public static int insertCustomer(String customer_name, String address, String postal_code, String phone, int division_id ) throws SQLException {
+        String sql = "INSERT INTO CUSTOMERS VALUES(NULL,?,?,?,?,NULL,NULL,NULL,NULL,?)";
+        PreparedStatement ps = DBConnection.connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        ps.setString(1, customer_name);
+        ps.setString(2, postal_code);
+        ps.setString(3, postal_code);
+        ps.setString(4, phone);
+        ps.setInt(5, division_id);
+        int rowsAffected = ps.executeUpdate();
+        return rowsAffected;
     }
 
     /**
-     * Gets all customer i ds.
+     * This method updates an existing customer in the DB.
      *
-     * @return the all customer i ds
+     * @param customer the customer
+     * @return the int
+     * @throws SQLException the sql exception
+     */
+// Customer(int customer_id, String customer_name, String address, String postal_code, String phone, int division_id)
+    public static int updateCustomer(Customer customer) throws SQLException {
+        String sql = "UPDATE CUSTOMERS SET " +
+                "Customer_Name = ?, " +
+                "Address = ?, " +
+                "Postal_Code = ?, " +
+                "Phone = ?, " +
+                "Division_ID = ? " +
+                "WHERE Customer_ID = ?";
+        PreparedStatement ps = DBConnection.connection.prepareStatement(sql);
+        ps.setString(1, customer.getCustomer_name());
+        ps.setString(2, customer.getAddress());
+        ps.setString(3, customer.getPostal_code());
+        ps.setString(4, customer.getPhone());
+        for (Division division : DivisionDAOImpl.getAllDivisions()) {
+            if (customer.getDivision().equals(division.getDivision())) {
+                ps.setInt(5, division.getDivision_id());
+                break;
+            }
+        }
+        ps.setInt(6, customer.getCustomer_id());
+        int rowsAffected = ps.executeUpdate();
+        return rowsAffected;
+    }
+
+    /**
+     * This method deletes a customer in the DB by customer id.
+     *
+     * @param customer_id the customer id
+     * @return the int
+     * @throws SQLException the sql exception
+     */
+    public static int deleteCustomer(int customer_id) throws SQLException {
+        String sql = "DELETE FROM CUSTOMERS WHERE Customer_ID = ?";
+        PreparedStatement ps = DBConnection.connection.prepareStatement(sql);
+        ps.setInt(1, customer_id);
+        int rowsAffected = ps.executeUpdate();
+        return rowsAffected;
+    }
+
+
+    /**
+     * This method puts all customer id's into an observable list. Used for combo box
+     *
+     * @return customer id list
      */
     public static ObservableList<Integer> getAllCustomerIDs() {
         ObservableList<Integer> customerIDlist = FXCollections.observableArrayList();
